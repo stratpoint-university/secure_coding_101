@@ -15,3 +15,8 @@ If Auto DevOps is not already enabled for this project, you can [turn it on](htt
 This template has a fully-automated dev setup for [Gitpod](https://docs.gitlab.com/ee/integration/gitpod.html).
 
 If you open this project in Gitpod, you'll get all Node dependencies pre-installed and Express will open a web preview.
+
+<a href="https://scan.coverity.com/projects/stratpoint-university-secure_coding_101">
+  <img alt="Coverity Scan Build Status"
+       src="https://scan.coverity.com/projects/24768/badge.svg"/>
+</a>
