@@ -1,0 +1,22 @@
+<div class="col-md-10 d-flex row mt-5  p-3 rounded mx-auto border border-3 border-white shadow-lg bg-light">
+    <div class="col-md-4 mx-auto">
+         <!-- IMAGE GOES HERE -->
+         <% if(!userData.profile_picture_url){ %>   
+            <img src="/images/profile-images/default-profile.png" alt="" class="img-thumbnail rounded-3">
+
+          <% } else { %>  
+         <img src="/<%= userData.profile_picture_url %>" alt="" class="img-thumbnail rounded-3">
+         <% } %>
+         
+    </div>
+   
+    <div class="col-md-8 mx-auto text-start ">
+        <p class="fs-3 pb-link"><%= userData.first_name %> <%= userData.last_name %></p>
+        <p class="fs-3 pb-link"><%= userData.username %></p>
+        <p class="fs-3 pb-link"><%= userData.email %></p>
+          <%- include('./sidebar.ejs') %> 
+    </div>
+
+
+
+</div>

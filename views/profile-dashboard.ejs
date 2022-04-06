@@ -1,0 +1,53 @@
+<%- include('./includes/head.ejs') %>
+
+</head>
+
+<body>
+    <%- include('./includes/nav.ejs') %>
+    <main class="container-fluid profile-container">
+        <!-- SIDEBAR -->
+        <div class="col-md-12 mx-auto d-flex flex-column py-5 mt-3">
+            <div class=" mx-auto">
+                <%if(!userData.profile_picture_url){ %>
+                <img src="/images/profile-images/default-profile.png" class="img-thumbnail profile-image rounded"
+                    alt="">
+                <%}else{ %>
+                <img src="/<%= userData.profile_picture_url %>" class="img-thumbnail profile-image rounded" alt="">
+                <% } %>
+            </div>
+            <div class="col-md-6 mx-auto">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    <div class="form-floating p-2 my-3">
+                        <input type="text" class="form-control " id="first-input" name="firstname"
+                            value="<%= userData.first_name %>" readonly disabled>
+                        <label for="first-input">Firstname</label>
+                    </div>
+
+                    <div class="form-floating p-2 my-3">
+                        <input type="text" class="form-control" id="last-input" name="lastname"
+                            value="<%= userData.last_name %>" readonly disabled>
+                        <label for="last-input">Lastname</label>
+                    </div>
+
+                    <div class="form-floating p-2 my-3">
+                        <input type="email" class="form-control" id="email-input" name="email"
+                            value="<%= userData.email %>" readonly disabled>
+                        <label for="email-input">Email Address</label>
+                    </div>
+
+                    <div class="form-floating p-2 my-3">
+                        <input type="text" class="form-control" id="username-input" name="username"
+                            value="<%= userData.username %>" readonly disabled>
+                        <label for="username-input">Username</label>
+                    </div>
+
+
+                    <a href="/dashboard/edit-profile" class="text-decoration-none text-dark fs-5 "><span
+                            class="material-icons">
+                            face
+                        </span>Edit Profile</a>
+                </form>
+            </div>
+    </main>
+
+    <%- include('./includes/end.ejs') %>

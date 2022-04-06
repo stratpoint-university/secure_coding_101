@@ -1,0 +1,40 @@
+<%- include('./includes/head.ejs') %>
+</head>
+<body>
+    <%- include('./includes/nav.ejs') %>
+
+    <main class="container">
+      
+        <!--  BLOG LIST OF THIS PARTICULAR USER -->
+         
+        <div class="col-md-9 ms-2 ps-3 bg-white rounded d-flex mt-5 justify-content-around gap-3">
+            <% if (blog.length === 0 ){ %>
+                <p class="display-1 text-center">No blogs</p>
+          <%  } %>
+          
+        <% blog.forEach(blog =>{ %>
+                   <a href="/blog/<%= blog._id %>" class="text-decoration-none">
+            <div class="card col-md-4 shadow">
+                <img src="/<%=blog.cover_picture_url %>" alt="" class="card-img-top">
+                <!-- image tag goes here with class card-img-top -->
+                <div class="card-body text-dark">
+                    <p class="card-title py-3 text-dark display-6 "><%= blog.title %></p>
+                    <%if(!blog.user_id.profile_picture_url){ %>
+                   <img src="/images/profile-images/default-profile.png"
+                     class="img-thumbnail profile-image rounded-circle profile-pic-card" alt="">
+                   <p class="fs-italic text-dark"><%= blog.user_id.first_name %> <%= blog.user_id.last_name %></p>
+                   <%}else{ %>
+                   <img src="/<%= blog.user_id.profile_picture_url %>" class="img-thumbnail profile-image rounded-circle profile-pic-card"
+                     alt="">
+                   <p class="fs-italic py-2 text-dark"><%= blog.user_id.first_name %> <%= blog.user_id.last_name %></p>
+                   <% } %>
+                </div>
+                 <div class="card-footer">
+                     <a href="/blog/<%= blog._id %>" class="card-link text-decoration-none text-dark">Read blog</a>
+                </div>
+            </div>
+            </a>
+        <% }) %>
+        </div>
+    </main>
+<%- include('./includes/end.ejs') %>

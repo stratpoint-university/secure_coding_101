@@ -1,0 +1,31 @@
+<%- include('./includes/head.ejs') %>
+</head>
+<body>
+    <%- include('./includes/nav.ejs') %>
+
+    <main class="container">
+      
+        <%- include('./includes/profile-banner.ejs') %>
+    
+
+        <!--  BLOG LIST OF THIS PARTICULAR USER -->
+        <div class="col-md-9 ms-2 ps-3 bg-white rounded d-flex mt-5 justify-content-around gap-3">
+            <% if (blog.length === 0 ){ %>
+                <p class="display-1 text-center">No blogs</p>
+          <%  } %>
+          
+        <% blog.forEach(content =>{ %>
+            <div class="card col-md-4">
+                <img src="/<%=content.cover_picture_url %>" alt="" class="card-img-top">
+                <!-- image tag goes here with class card-img-top -->
+                <div class="card-body">
+                    <h5 class="card-title text-center  display-6"><%= content.title %></h5>
+                </div>
+                 <div class="card-footer">
+                     <a href="/dashboard/blog/<%= content._id %>" class="card-link">Edit blog</a>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+    </main>
+<%- include('./includes/end.ejs') %>

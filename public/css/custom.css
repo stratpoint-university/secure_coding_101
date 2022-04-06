@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  min-height: 100vh;
+  position: relative;
+}
+
+main{
+  padding-bottom: 6rem;
+}
+
+.img-icon-home {
+  border-radius: 10px;
+}
+.nav-link {
+  color: black;
+}
+.feature-blog {
+  background-color: black;
+  color: white;
+  width: 100%;
+  margin: 0;
+}
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: contain;
+}
+.img-admin {
+  max-width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+.container-fluid {
+  padding-right: 0;
+  padding-left: 0;
+}
+.img-sign{
+    max-height: 90%;
+}
+ 
+.navigation {
+  color: #0f1422;
+  position: relative;
+  text-decoration: none;
+  transition: color .4s ease-out;
+}
+
+.navigation:hover {
+  color: black;
+  right: 0;
+  text-decoration: none;
+}
+
+.navigation:hover:after {
+  border-color: black;
+  right: 0;
+}
+
+.navigation:after {
+  border-radius: 1em;
+  border-top: .1em solid black;
+  content: "";
+  position: absolute;
+    right: 100%;
+    bottom: .14em;
+    left: 0;
+  transition: right .4s cubic-bezier(0,.5,0,1),
+              border-color .4s ease-out;
+}
+
+.navigation:hover:after {
+right: 0;
+}
+
+.sidebar{
+  height: 50vh;
+}
+.card-footer{
+  background-color: whitesmoke;
+}
+.footer{
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  height: 5rem;
+  padding-bottom:3rem;
+  padding-top: 1rem;
+  background-color: #f9f9f9;
+  border-top: .05rem solid #e5e5e5
+}
+.text-content{
+  text-align: justify;
+}
+
+.error-msg {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px 3px 3px 3px;
+}
+
+.error-msg {
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+.material-icons { display: inline-flex; vertical-align: text-bottom; }
+.pb-link{ margin-bottom: .20rem;}
+.profile-image{max-height: 250px;}
+.profile-container{background-color: #FDFAF6;}
+.profile-pic-card{
+  max-height: 50px;
+}

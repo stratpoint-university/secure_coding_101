@@ -1,0 +1,33 @@
+   <%- include('./includes/head.ejs') %>
+   </head>
+
+   <body>
+     <%- include('./includes/nav.ejs') %>
+
+     <div class="py-5 p-md-5 col-12 container-fluid rounded feature-blog border-end border-4">
+       <div class="col-md-6 px-0 mx-auto">
+         <h1 class="display-2 fst-italic text-center "><%= blog.title %></h1>
+         <h2 class="display-6 mt-3 text-center"> <%= blog.user_id.username %></h2>
+       </div>
+     </div>
+
+     <main class="container mt-5 mx-auto border-end border-4 border-dark">
+       <!-- blog picture container dynamic image depends on what user chose to upload-->
+       <div class="col-md-10 mx-auto">
+         <!-- Static Cover for the meantime -->
+         <img src="/<%= blog.cover_picture_url %>" alt="" class="img-fluid rounded">
+
+       </div>
+       <!-- blog contents -->
+       <div class="col-md-10 mt-5">
+         <p class="lh-base text-wrap text-break fs-4 text-content"><%= blog.description %></p>
+       </div>
+
+       <!-- Edit current blog link if logged in -->
+       <div class="col-md-2 my-2">
+         <a href="/" class="text-decoration-none text-dark">Home</a>
+
+       </div>
+     </main>
+
+     <%- include('./includes/end.ejs') %>

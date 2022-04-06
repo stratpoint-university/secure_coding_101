@@ -1,0 +1,41 @@
+<%- include('./includes/head.ejs') %>
+
+<body class="login-container">
+     <%- include('./includes/nav.ejs') %>
+    
+    <main class=" mt-5  pt-5 container">
+        <div class="col-md-12 d-flex mx-auto justify-content-space-between">
+
+        <div class="col-md-6 me-4">
+            <img src="/images/log-in-bg.jpg" alt="" class="img-fluid rounded">
+        </div>
+
+
+
+        <div class="col-md-6 ms-5 ps-3 bg-white rounded">
+            <form method="POST" action="/login">
+
+                <h1 class=" mb-3 fw-normal fst-italic">Log in</h1>
+                <h2 class=" mb-3 fw-normal">Come on in and get started</h2>
+                <div class="form-floating p-2 my-4">
+                    <input type="email" class="form-control" id="email-input" name="email">
+                    <label for="email-input">Email Address</label>
+                </div>
+
+                <div class="form-floating p-2 my-4">
+                    <input type="password" class="form-control" id="pass-input" name="password">
+                    <label for="pass-input">Password</label>
+                </div>
+
+                <button class="w-25 btn btn-outline-dark" type="submit">Sign in</button>
+            </form>
+            <% if(errorMessage){ %>
+             <div class="error-msg">
+                <i class="fa fa-times-circle"></i>
+                    <%= errorMessage %>
+                </div>
+                <% } %>
+        </div>
+        </div>
+    </main>
+<%- include('./includes/end.ejs') %>

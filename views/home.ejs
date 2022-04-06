@@ -1,0 +1,87 @@
+   <%- include('./includes/head.ejs') %>
+   </head>
+
+   <body>
+     <%- include('./includes/nav.ejs') %>
+     <%- include('./includes/page-indicator.ejs') %>
+
+     <main class="container-fluid">
+
+       <!-- Featured admin blogs. Limit to 3 -->
+       <div class="py-4 p-md-5 col-12 mt-3">
+         <h1 class="display-5 fst-italic text-center">Featured Blogs</h1>
+
+         <!-- Should be dynamic. Static for the meantime for design testing. FEATURED BLOG CONTAINER -->
+
+         <div class="col-md-10 px-0 d-flex justify-content-evenly mx-auto">
+           <% featureBlogs.forEach(blog=>{ %>
+           <a href="/blog/<%= blog._id %>" class="text-decoration-none">
+             <div class="col-3 px-0 mt-3 shadow">
+               <div class="card">
+                 <img src="/<%= blog.cover_picture_url %>" class="card-img-top" alt="">
+
+                 <div class="card-body">
+
+                   <p class="card-title py-3 text-dark display-6 "><%= blog.title %></p>
+
+                   <%if(!blog.user_id.profile_picture_url){ %>
+                   <img src="/images/profile-images/default-profile.png"
+                     class="img-thumbnail profile-image rounded-circle profile-pic-card" alt="">
+                   <p class="fs-italic text-dark"><%= blog.user_id.first_name %> <%= blog.user_id.last_name %></p>
+                   <%}else{ %>
+                   <img src="/<%= blog.user_id.profile_picture_url %>" class="img-thumbnail profile-image rounded-circle profile-pic-card"
+                     alt="">
+                   <p class="fs-italic py-2 text-dark"><%= blog.user_id.first_name %> <%= blog.user_id.last_name %></p>
+                   <% } %>
+
+                 </div>
+                 <div class="card-footer">
+                   <a href="/blog/<%= blog._id %>" class="text-decoration-none text-dark">Read full blogpost</a>
+                 </div>
+               </div>
+             </div>
+           </a>
+           <% }) %>
+         </div>
+
+
+       </div>
+
+       <!-- Blog list by admin  limit to 10 if possible add pagination-->
+       <div class="pt-3 p-md-3 col-12 mt-3">
+         <h1 class="display-5 fst-italic ms-5">Admin Blogs</h1>
+
+         <!-- ADMIN BLOG CONTAINER -->
+         <div class="mx-auto mt-3 col-md-7 p-2">
+
+           <!-- SINGLE BLOG INSTANCE. SHOULD BE DYNAMIC CURRENTLY STATIC FOR TESTING -->
+           <% blogs.forEach(blog=>{  %>
+
+           <div class="card mb-3 g-0">
+
+
+             <div class="row">
+               <div class="col-md-4">
+                 <img src="/<%= blog.cover_picture_url %>" alt="" class="img-fluid">
+               </div>
+               <div class="col-md-6">
+                 <div class="card-body">
+                   <h2 class="card-title p-2"><%= blog.title %></h2>
+                   <p class="card-text p-2">A blog post by <span class="fw-bold fs-5"><%=blog.user_id.username %></span>
+                   </p>
+                   <a href="/blog/<%= blog._id %>" class="btn btn-light p-2">Read</a>
+                 </div>
+               </div>
+             </div>
+
+           </div>
+           <% }) %>
+
+         </div>
+       </div>
+       </div>
+       </div>
+
+     </main>
+
+     <%- include('./includes/end.ejs') %>
