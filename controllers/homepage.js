@@ -74,3 +74,23 @@ exports.blogList = async (req, res, next) => {
     return next(error)
   }
 };
+var REGEXP_ATTR_VALUE_1 = /&#([a-zA-Z0-9]*);?/gim;
+
+function escapeHtmlEntities(str) {
+  return str.replace(REGEXP_ATTR_VALUE_1, function replaceUnicode(str, code) {
+    return code[0] === "x" || code[0] === "X"
+      ? String.fromCharCode(parseInt(code.substr(1), 16))
+      : String.fromCharCode(parseInt(code, 10));
+  });
+}
+
+function render(html) {
+  console.log(html);
+  document.getElementById("app").innerHTML = html;
+}
+
+render(
+  `<a href="${escapeHtmlEntities(
+    "http://adfas?&<script>alert(1)</script>"
+  )}">ttt</a>`
+);
