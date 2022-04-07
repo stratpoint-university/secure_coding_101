@@ -1,0 +1,42 @@
+   <%- include('./includes/head.ejs') %>
+  </head>
+  <body>
+    <%- include('./includes/nav.ejs') %>
+    
+    <main class="container">
+
+      <!-- SIDEBAR -->
+      <%- include('./includes/sidebar.ejs') %>
+    
+      <!-- MAIN FORM -->
+        <div class="col-md-9 mt-5 mx-auto">
+          <form action="/dashboard/add-blog" method="POST" enctype="multipart/form-data">
+            <div class="mb-3 mx-auto text-center">
+              <input type="text" class="form-control-lg w-50" placeholder="Blog Title" name="title">
+            </div>
+
+              <div class="mb-3">
+              <textarea name="content" id="blog-content" cols="30" rows="10" class="form-control-lg w-100" placeholder="Blog body"></textarea>
+            </div>
+
+            <div class="mb-3">
+              <input class="form-control w-20"  type="file" name="image">
+            </div>
+
+            <div class="form-check form-switch my-3">
+                <input type="checkbox" name="isDraft" id="draft-check" class="form-check-input">
+                <label for="draft-check" class="form-check-label">Currently In Draft</label>
+            </div>
+
+            <button type="submit" class="btn btn-dark">Submit</button>
+
+          </form>
+             <% if(errorMessage){ %>
+             <div class="error-msg">
+                <i class="fa fa-times-circle"></i>
+                    <%= errorMessage %>
+                </div>
+                <% } %>
+        </div>
+    </main>
+<%- include('./includes/end.ejs') %>

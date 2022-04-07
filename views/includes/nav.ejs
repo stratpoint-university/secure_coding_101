@@ -1,0 +1,35 @@
+<div class="container">
+  <header class="py-3 mt-1">
+    <div class="row flex-nowrap justify-content-space-between align-items-center">
+      <div class="col-7 d-flex align-items-center me-5">
+        <img src="/images/blog-icon.png" alt="We Dem Bois" class="img-fluid img-icon-home" /><a href="/"
+          class="text-dark">
+          <h1 class="display-5 ms-3">kewl blogs</h1>
+        </a>
+      </div>
+      <nav class="col-5 d-flex justify-content-between me-5">
+        <a href="/bloglist" class="text-decoration-none nav-link navigation">All Blogs</a>
+        <% if(isAuthenticated){ %>
+        <a href="/dashboard/blog" class="text-decoration-none nav-link navigation">Blogs</a>
+        <a href="/dashboard/profile" class="text-decoration-none nav-link navigation">Profile</a>
+        <a href="/dashboard/signout" class="text-decoration-none nav-link navigation">Sign out</a>
+
+        <% }  else{ %>
+        <a href="/login" class="text-decoration-none nav-link navigation">Login</a>
+        <a href="/signup" class="text-decoration-none nav-link navigation">Sign up</a>
+        <% } %>
+
+        <form class="form-outline row" action='/blog'>
+          <div class="input-group">
+            <input name='search' type="search" id="search-bar" class="form-control form-control-sm col-auto" />
+
+
+            <button type="submit" class="btn btn-sm btn-outline-secondary col-auto">Search</button>
+          </div>
+        </form>
+
+    </div>
+    </nav>
+</div>
+</header>
+</div>
