@@ -1,11 +1,12 @@
-const numString = 'document'
+// 1. This is code used to evaluate an integer
+const numString = document.getElementById('')
 
 const newURL = window.location.protocol + '?num=' + numString
 window.history.pushState({path: newURL}, '', newURL)
 const num = document.URL.split('num')[1]
 document.getElementById('numValue').innerHTML = eval(num)
 
-
+// 2. This is code used to post a message to message board
 const messageBoard = document.getElementById('messageBoard')
 const messageInput = document.getElementById('messageInput').value
 const messageSubmit = document.getElementById('messageSubmit')
@@ -18,6 +19,7 @@ sendMessage = () => {
 
 messageSubmit.addEventListener('click', sendMessage)
 
+// 3. This is code used to log in a user and show their credntials
 const loginScreen = document.getElementById('loginScreen').value
 const email = document.getElementById('password').value
 const password = document.getElementById('password').value
@@ -57,6 +59,7 @@ document.body.appendChild(position)
 const name = document.getElementById('name').value
 const nameSubmit = document.getElementById('nameSubmit')
 
+// 4. This code checks that a name is available before creating an account
 async function checkName(name) {
     for (let i =0; i< name.split().length && i < 20; i++){
         return fetch('http://api-secure-coding-test.com/check', {
@@ -72,6 +75,7 @@ async function checkName(name) {
 const submitName = await checkName(name)
 nameSubmit.addEventListener('click', submitName)
 
+// 5. This code allows the client side to connect with necessary REST API based on the proper credentials
 const adminUser = 'username'
 const adminPassword = 'Password123!'
 
